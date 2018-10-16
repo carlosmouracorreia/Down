@@ -53,15 +53,8 @@ public struct DownHTMLRenderer {
      */
     
     public static func astToHTML(_ ast: UnsafeMutablePointer<cmark_node>, options: DownOptions = .default) throws -> String {
-        guard let cHTMLString = cmark_render_html(ast, options.rawValue) else {
-            throw DownErrors.astRenderingError
-        }
-        defer { free(cHTMLString) }
         
-        guard let htmlString = String(cString: cHTMLString, encoding: String.Encoding.utf8) else {
-            throw DownErrors.astRenderingError
-        }
-
-        return htmlString
+        let node = Node(node: ast)
+        return node.html
     }
 }
