@@ -7,8 +7,8 @@ Pod::Spec.new do |spec|
   spec.authors      = { "Rob Phillips" => "rob@robphillips.me" }
   spec.source       = { :git => "https://github.com/iwasrobbed/Down.git", :tag => "v" + spec.version.to_s }
   spec.source_files = "Source/{cmark,Enums & Options,Extensions,Renderers}/**/*.{h,c,swift}", "Source/*"
-  spec.ios.source_files = "Source/Views/**"
-  spec.osx.source_files = "Source/Views/**"
+  spec.ios.source_files = "Source/Views/**", "Source/CMarkWrapper/**"
+  spec.osx.source_files = "Source/Views/**", "Source/CMarkWrapper/**"
   spec.public_header_files = "Source/*.h"
   spec.ios.deployment_target = "9.0"
   spec.tvos.deployment_target = "9.0"
